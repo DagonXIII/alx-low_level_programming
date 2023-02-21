@@ -10,10 +10,10 @@
 
 int main(void)
 {
-	char text[8] = "_putchar";
+	char text[9] = "_putchar";
 	int a = 0;
 
-	for (a = 0; a < 7; a++)
+	for (a = 0; a < 8; a++)
 	{
 		_putchar(text[a]);
 	}
