@@ -24,7 +24,7 @@ int main(void)
 		first = second;
 		second = a;
 
-		count++;
+		b++;
 	}
 	a = first + second;
 	printf("%li\n", a);
