@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 
 /**
  * print_alphabet_x10 - print alphabet 10 times
@@ -8,19 +8,19 @@
 
 void print_alphabet_x10(void)
 {
-	int a = 0;
-	char b = 'a';
+	int amount = 0;
+	char startingLetter = 'a';
 
-	while (a < 10)
+	while (amount < 10)
 	{
-		b = 'a';
-		while (b <= 'z')
+		startingLetter = 'a';
+		while (startingLetter <= 'z')
 		{
-			_putchar(b);
-			b++;
+			_putchar(startingLetter);
+			startingLetter++;
 		}
 		_putchar('\n');
 
-		a++;
+		amount++;
 	}
 }
