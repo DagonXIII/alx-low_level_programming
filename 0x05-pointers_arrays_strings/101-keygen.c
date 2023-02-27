@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LEN 61
+#define PASSWORD_LEN 
 
 int main(void)
 {
-	char password[16];
+	char password[PASSWORD_LEN];
 	int i;
-	const char valid_chars[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const char valid_chars[] = " !0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	srand(time(NULL));
 
