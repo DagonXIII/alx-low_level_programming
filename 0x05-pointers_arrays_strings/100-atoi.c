@@ -26,15 +26,15 @@ int _atoi(char *s)
 			ni = (ni * 10) + (s[i] - '0');
 			i++;
 		}
-		
+
 		if (a == 1)
 		{
 			break;
 		}
-		
+
 		i++;
 	}
-	
+
 	ni *= min;
 	return (ni);
 }
