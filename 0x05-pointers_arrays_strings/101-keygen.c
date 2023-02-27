@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	char password[15];
+	char password[16];
 	int i;
 	const char valid_chars[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
