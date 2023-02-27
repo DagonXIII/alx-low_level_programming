@@ -5,7 +5,7 @@
 #define PASSWORD_LEN 61
 
 /**
-* _keygen - generates random valid passwords for the program 101-crackme
+* _keygen - generates random valid passwords for the program crackme
 *
 * Return: A integer
 */
