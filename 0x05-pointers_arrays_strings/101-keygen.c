@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LEN 
+#define PASSWORD_LEN 61
 
 int main(void)
 {
