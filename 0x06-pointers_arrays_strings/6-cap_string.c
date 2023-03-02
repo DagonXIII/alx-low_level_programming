@@ -5,38 +5,34 @@
  * @str: string
  * Return: `str`
  */
-
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int i;
+	int i, c;
+	int trigger;
+	char nots[] = ",;.!?(){}\n\t\" ";
 
-	if (s[0] >= 'a' && s[0] <= 'z')
-		s[0] -= 32;
-
-	for (i = 1; s[i] != '\0'; i++)
+	for (i = 0, trigger = 0; str[i] != '\0'; i++)
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
+		if (str[0] > 96 && str[0] < 123)
+			trigger = 1;
+		for (c = 0; nots[c] != '\0'; c++)
 		{
-			switch (s[i - 1])
+			if (nots[c] == str[i])
+				trigger = 1;
+		}
+
+		if (trigger)
+		{
+			if (str[i] > 96 && str[i] < 123)
 			{
-				case ' ':
-				case '\t':
-				case '\n':
-				case ',':
-				case ';':
-				case '.':
-				case '!':
-				case '?':
-				case '\"':
-				case '(':
-				case ')':
-				case '{':
-				s[i] -= 32;
-				break;
+				str[i] -= 32;
+				trigger = 0;
 			}
+			else if (str[i] > 64 && str[i] < 91)
+				trigger = 0;
+			else if (str[i] > 47 && str[i] < 58)
+				trigger = 0;
 		}
 	}
-
-	return (s);
+	return (str);
 }
-
