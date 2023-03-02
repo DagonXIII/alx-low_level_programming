@@ -11,46 +11,53 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-        int len1 = 0, len2 = 0, i, j, k, carry = 0, sum = 0;
+    int len1 = 0, len2 = 0, carry = 0;
+    char *p1 = n1, *p2 = n2, *pr = r;
 
-        while (n1[len1] != '\0')
-                len1++;
+    // Determine the lengths of n1 and n2
+    while (*p1 != '\0')
+    {
+        len1++;
+        p1++;
+    }
+    while (*p2 != '\0')
+    {
+        len2++;
+        p2++;
+    }
 
-        while (n2[len2] != '\0')
-                len2++;
+    // Check if the result can be stored in r
+    if (len1 + len2 >= size_r)
+    {
+        return 0;
+    }
 
-        if (len1 > size_r || len2 > size_r)
-                return (0);
+    // Add the digits of n1 and n2 from right to left, storing the result in r
+    p1 = n1 + len1 - 1;
+    p2 = n2 + len2 - 1;
+    pr = r + len1 + len2;
+    *pr = '\0';
+    pr--;
+    while (p1 >= n1 || p2 >= n2)
+    {
+        int d1 = (p1 >= n1) ? (*p1 - '0') : 0;
+        int d2 = (p2 >= n2) ? (*p2 - '0') : 0;
+        int sum = d1 + d2 + carry;
+        carry = sum / 10;
+        *pr = (sum % 10) + '0';
+        p1--;
+        p2--;
+        pr--;
+    }
+    if (carry > 0)
+    {
+        *pr = carry + '0';
+    }
+    else
+    {
+        pr++;
+    }
 
-        i = len1 - 1;
-        j = len2 - 1;
-        k = 0;
-
-        while (i >= 0 || j >= 0 || carry > 0)
-        {
-                sum = carry;
-
-                if (i >= 0)
-                        sum += n1[i] - '0';
-
-                if (j >= 0)
-                        sum += n2[j] - '0';
-
-                carry = sum / 10;
-                r[k++] = (sum % 10) + '0';
-
-                i--;
-                j--;
-        }
-
-        r[k] = '\0';
-
-        for (i = 0, j = k - 1; i < j; i++, j--)
-        {
-                char temp = r[i];
-                r[i] = r[j];
-                r[j] = temp;
-        }
-
-        return (r);
+    return pr;
 }
+
