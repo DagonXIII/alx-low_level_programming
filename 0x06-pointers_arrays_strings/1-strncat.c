@@ -7,20 +7,16 @@
  * @n: number of elements to concatenate in
  * Return: pointer to resulting `dest`
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
-	char *ptr = dest;
-	while (*ptr != '\0')
+	int i, c;
+
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+
+	for (c = 0; src[c] != '\0' && n > 0; c++, n--, i++)
 	{
-		ptr++;
+		dest[i] = src[c];
 	}
-	while (n-- && *src != '\0')
-	{
-		*ptr = *src;
-		ptr++;
-		src++;
-	}
-	*ptr = '\0';
-	return dest;
+	return (dest);
 }
