@@ -4,7 +4,6 @@
 /**
  * free_listint - Frees a listint_t list
  * @head: Pointer to the head of the list
- * Rturn: Null in case of error
  */
 void free_listint(listint_t *head)
 {
