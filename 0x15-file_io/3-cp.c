@@ -38,7 +38,7 @@ int main(int ac, char **av)
 	while ((ret_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		ret_write = write(fd_to, buffer, ret_read);
-		 if (ret_write == -1)
+		if (ret_write == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
